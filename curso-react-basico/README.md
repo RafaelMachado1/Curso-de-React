@@ -1,68 +1,69 @@
 # Curso-de-React
-# Aula 2
-## JSX
+# Aula 3
+## Componentes
 
-* JSX é uma sintaxe que permite gerar código HTML a partir de código Javascript;
-* É muito parecida com HTML, mas possui algumas particularidades;
-* No momento de executar, ela é transformada em Javascript puro;
-* Um componente em React é representado por uma função que retorna um JSX;
+### `O que é um componente?`
+
+Na prática, componentes em React são funções com algumas regras especificas:
+
+* `Primeira letra do nome maiúscula`;
+* `Deve retornar um JSX (com um único pai);`
+* Sintaxe de um componente:
 
 ![alt text](./Imagem/image.png)
 
-## Diferenças JSX e HTML
-É possível utilizar atributos presentes em elementos HTMl.Porém, alguns nomes são levemente diferentes, abordaremos abaixo algumas diferenças:
+### `O que deve ser um componente?`
+* **Não existe uma regra** de quando componetizar uma parte da tela.
+* Devemos considerar **criar** um componente quando:
 
-### 1. Nomes
-* class => `className`
-* Atributos com múltiplas palavras viram camelCase
-    * onclick => `onClick`
-    * onchange => `onChange`
+    * Layout repetido;
 
-* exemplo:
+        `Exemplo`
 
 ![alt text](./Imagem/image-1.png)
 
-### 2. Imagens Locais
-* Antes, podiamos passar o path (caminho) da imagem, relativo ao arquivo atual, para o atributo src.
-* Agora, para usar uma imagem local, é preciso **importá-la no topo do arquivo**, e só entao passar ela para src entre {chaves}.
-
-* Sintaxe:
+### `Analogia com Lego`
 
 ![alt text](./Imagem/image-2.png)
 
-### 3 Valores
-* Em geral, os valores dos atributos são passados da mesma forma que antes;
-* Existem duas diferenças principais:
-* Imagens locaisFunções de eventos (onClick, onChange, etc)
-  
-### 4. Funções de eventos
-* Antes, era possível declarar funções no arquivo JS e referenciá-las no HTML, nos atributos de evento.
-* As funções eram chamadas entre aspas e com os parênteses, por exemplo:
+* Código muito grande e/ou confuso;
+* Queremos dar um nome significativo à uma parte da interface;
 
-![](./Imagem/image-3.png)
+### `Criando um componente`
 
-* Agora, podemos declarar a função no **próprio componete**, antes do return. Passamos a função **entre chaves e sem parênteses:
+![alt text](./Imagem/image-3.png)
 
-![](./Imagem/image-4.png)
+* Quando colocamos um componente A dentro de um componente B, falamos que o componente A é filho do Componente B;
+* Lembrando que o componente App.js, criado por padrão quando iniciamos um app React, é o pai de todos os outros componentes;
 
-`Exemplo`
+![alt text](./Imagem/image-4.png)
+
+* Para colocar o componente na tela, chamamos ele em um componente pai, dentro do nosso JSX;
+
+### `Usando um componente`
+
+* Para chamar o componente, usamos uma sintaxe semelhante à do HTML. Nome deve ser mantido, com a letra maiúscula;
+* Quando um componente não possui nada entre a abertura e o fechamento de sua tag, é preferível que se use a sintaxe self-closing.
+
+### `Separando componentes em arquivos`
+É permitido ter mais de um componente em um mesmo arquivo (afinal, eles são só funções). No entanto, é uma boa prática criar um arquivo por componente. Ligamos os arquivos por meio de imports e exports.
+
+### `Criando e exportando um componente separado`
+
+* Recomenda-se a criação de uma pasta chamada components, que guarde todos os componentes criados: 
 
 ![alt text](./Imagem/image-5.png)
 
-### 5. Regra do Pai único
-Todas as expressões JSX devem ter **um único pai**, ou seja, todo o conteúdo de um componente deve estar envolto de uma `div` ou um React Fragment `<> </>`
-
-### 6. Expressões Javascript
-* Podemos usar expressões Javascript no meio do código JSX;
-* Uma expressão Javascript é tudo aquilo que representa **um único valo**;
-* Para usar o valor da expressão, basta colocá-la entre {chaves}.
+* Todo arquivo que possui um componente deve importat o React no topo;
+* Devemos exportar o componente (antes do nome);
+* O arquivo deve ter o mesmo nome do componente que ele guarda.
 
 ![alt text](./Imagem/image-6.png)
 
-### 7. Self-closing Tags
-São ekementos que não possuem filhos (img, input, br, hr) possuem uma sintaxe levemente diferente. Por isso, devem sequir sintaxe self-closing;
-
-* Qualquer outro elemento que não tenha filhos pode seguir essa sintaxe.
+### `Importando um componente`
+* Precisamos importá-lo no arquivo que queremos usar. Fazemos isso por meio da palavra import. Atenção para as {chaves} em volta do nome do componente.
 
 ![alt text](./Imagem/image-7.png)
+
+![alt text](./Imagem/image-8.png)
 
