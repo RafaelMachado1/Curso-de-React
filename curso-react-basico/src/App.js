@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import HelloWorld from './components/HelloWorlds';
 import './App.css';
 
 function App() {
@@ -18,6 +18,7 @@ const url = 'https://via.placeholder.com/150'
       <p>Olá, {newName}</p>
       <p>soma: {sum(1,2)}</p>
       <img src={url} alt="minha Imagem" />
+      <HelloWorld />
     </div>
   );
 }
